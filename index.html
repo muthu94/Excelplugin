@@ -1,0 +1,85 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+	<style> 
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: white;
+}
+button { 
+       background-color: #000080; 
+       width: 100%;
+        color: white; 
+        padding: 15px; 
+        margin: 10px 0px; 
+        border: none; 
+        cursor: pointer; 
+         } 
+ form { 
+        border: 3px solid #f1f1f1; 
+    } 
+ input[type=text], input[type=password] { 
+        width: 100%; 
+        margin: 8px 0;
+        padding: 12px 20px; 
+        display: inline-block; 
+        border: 2px solid black; 
+        box-sizing: border-box; 
+    }
+ button:hover { 
+        opacity: 0.7; 
+    } 
+  .cancelbtn { 
+        width: auto; 
+        padding: 10px 18px;
+        margin: 10px 5px;
+    } 
+      
+   
+ .container { 
+        padding: 25px; 
+        background-color: #87CEFA;
+    } 
+</style> 
+</head>
+
+<body>
+
+<form>
+        <div class="container"> 
+            <label>Username : </label> 
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label>Password : </label> 
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <button type="submit">Login</button> 
+            
+        </div> 
+    </form>   
+    <!-- The following image URL tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project. -->
+    <img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/excel-add-in-hello-world-run" />
+</body>
+
+<script>
+    Office.onReady((info) => {
+        // Check that we loaded into Excel
+        if (info.host === Office.HostType.Excel) {
+            document.getElementById("submit").onclick = sayHello;
+        }
+    });
+
+    function sayHello() {
+        Excel.run(context => {
+
+            // Insert text 'Hello world!' into cell A1.
+            context.workbook.worksheets.getActiveWorksheet().getRange("A1").values = [['Hello world!']];
+
+            // sync the context to run the previous API call, and return.
+            return context.sync();
+        });
+    }
+</script>
+
+</html>
