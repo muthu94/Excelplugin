@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title> Javascript Fetch API </title>  
+</head>  
+<body>  
+<p> Javascript Fetch API  </p>  
+<script>  
+async function getUser() {
+  try {
+    const response = await fetch('http://dss-fdmi-prod-01.global.standardchartered.com:3999/public/api/v1/API_JS/JS/run',{
+     
+      mode: 'no-cors', 
+      method: 'GET',
+	   cache : 'no-cache',
+	   //credentials : 'same-origin',
+      headers: {
+		             'Accept': 'application/json',
+	               'Server' : 'nginx',
+		             'Content-Type':'application/json',
+                 'Transfer-Encoding':'chunked',
+                 'Connection' :'keep-alive',
+		            'Content-Encoding' :'gzip',
+		            'DSS-Version': '9.0.7',
+		            'DSS-APINode-API-Version' : '1',
+		            "serviceId":"API_JS",
+		            "endpointId":"JS",
+		            "serviceGeneration":"v1",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error! status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+getUser().then(data => {
+  console.log(data);
+});
+
+</script>  
+</body>  
+</html>  
