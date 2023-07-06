@@ -9,7 +9,10 @@
 <script>  
 async function getUser() {
   try {
-    const response = await fetch('http://dss-fdmi-prod-01.global.standardchartered.com:3999/public/api/v1/API_JS/JS/run',{
+ var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+var general_url = 'http://dss-fdmi-prod-01.global.standardchartered.com:3999/public/api/v1/API_JS/JS/run';
+
+    const response = await fetch(cors_api_url + general_url,{
      
       mode: 'no-cors', 
       method: 'GET',
