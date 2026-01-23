@@ -1,0 +1,10 @@
+
+{
+  "name": "EnhancedSankeyWidget",
+  "id": "enhanced.sankey.widget",
+  "properties": [],
+  "events": ["onDataChange"],
+  "methods": ["renderSankey"],
+  "jsFiles": ["sankeyWidget.js"],
+  "cssFiles": []
+}

@@ -1,0 +1,15 @@
+
+/* sankeyWidget.css - optional styling for the sankey widget container and tooltips */
+.enhanced-sankey-tooltip {
+  position: absolute;
+  pointer-events: none;
+  padding: 6px 8px;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 9999;
+}
+.enhanced-sankey-svg text {
+  font-family: "Arial", sans-serif;
+}
